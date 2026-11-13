@@ -1,11 +1,78 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>我的第一个网站</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="个人主页与作品集">
+  <title>个人主页 · 我的数字名片</title>
+  <style>
+    :root{--bg:#0b1220;--panel:#111c2e;--text:#edf3ff;--muted:#9aabc4;--blue:#70a7ff;--line:rgba(177,199,230,.14);--glow:rgba(76,133,230,.18)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% 5%,rgba(50,105,190,.20),transparent 35%),var(--bg);color:var(--text);font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1080px,calc(100% - 40px));margin:auto}
+    header{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+    .brand{font-weight:800;letter-spacing:.08em}.brand span{color:var(--blue)}nav{display:flex;gap:26px;color:var(--muted);font-size:14px}nav a:hover,.link:hover{color:var(--blue)}
+    .hero{min-height:590px;display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:48px;padding:80px 0}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:#a9c9ff;border:1px solid rgba(112,167,255,.28);background:rgba(72,126,208,.10);padding:7px 13px;border-radius:99px;font-size:13px}
+    .dot{width:7px;height:7px;background:#79b4ff;border-radius:50%;box-shadow:0 0 12px #79b4ff}
+    h1{font-size:clamp(42px,7vw,70px);line-height:1.12;letter-spacing:-.045em;margin:24px 0 18px}h1 em{font-style:normal;color:var(--blue)}
+    .lead{font-size:17px;color:var(--muted);max-width:590px}.actions{display:flex;gap:13px;margin-top:32px;flex-wrap:wrap}
+    .btn{padding:11px 19px;border-radius:10px;border:1px solid var(--line);font-size:14px;font-weight:650;transition:.2s}.primary{background:#78aaff;color:#081326;border-color:#78aaff}.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px var(--glow)}
+    .visual{position:relative;min-height:330px;display:grid;place-items:center}.orb{width:260px;height:260px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#a5cbff,#4d82d1 35%,#172e53 70%,#101a2b);box-shadow:0 0 90px rgba(73,132,220,.24);position:relative}
+    .orb:before,.orb:after{content:"";position:absolute;border:1px solid rgba(151,190,255,.35);border-radius:50%;inset:-27px;transform:rotate(-25deg) scaleY(.42)}.orb:after{inset:-55px;transform:rotate(35deg) scaleY(.42);border-color:rgba(151,190,255,.2)}
+    .orbit-label{position:absolute;bottom:16px;right:0;background:rgba(17,28,46,.88);border:1px solid var(--line);padding:12px 16px;border-radius:12px;color:var(--muted);font-size:12px;backdrop-filter:blur(12px)}
+    section{padding:76px 0;border-top:1px solid var(--line)}.section-top{margin-bottom:30px}.kicker{color:var(--blue);font-size:12px;letter-spacing:.16em;font-weight:800}.section-title{font-size:30px;margin:7px 0}.section-desc{color:var(--muted);margin:0}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{background:linear-gradient(145deg,rgba(20,34,55,.92),rgba(14,24,40,.92));border:1px solid var(--line);border-radius:17px;padding:25px}.card h3{margin:0 0 9px;font-size:17px}.card p{margin:0;color:var(--muted);font-size:14px}
+    .tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}.tag{font-size:12px;color:#c2d8ff;background:rgba(112,167,255,.10);border:1px solid rgba(112,167,255,.18);padding:5px 10px;border-radius:7px}
+    .timeline{display:grid;gap:14px}.item{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}.date{color:var(--blue);font-size:13px}.item p{margin:5px 0 0;color:var(--muted);font-size:14px}
+    .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.project{min-height:190px;display:flex;flex-direction:column;justify-content:space-between}.project .num{font-size:12px;color:var(--blue);letter-spacing:.12em}.project p{font-size:13px}
+    .contact{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}.contact h2{font-size:28px;margin:5px 0}.contact p{color:var(--muted);margin:0}
+    footer{padding:25px 0;color:#71839d;font-size:12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    @media(max-width:760px){nav{gap:13px;font-size:12px}.hero{grid-template-columns:1fr;padding:65px 0 55px;gap:20px}.visual{min-height:260px}.orb{width:190px;height:190px}.about-grid,.project-grid{grid-template-columns:1fr}.item{grid-template-columns:1fr;gap:3px}.section-title{font-size:26px}}
+    @media(max-width:420px){.wrap{width:min(100% - 28px,1080px)}header{height:auto;padding:18px 0;align-items:flex-start;gap:12px;flex-direction:column}nav{flex-wrap:wrap}.hero{min-height:auto}}
+  </style>
 </head>
 <body>
-    <h1>你好，世界！</h1>
-    <p>这是我的第一个 GitHub 网站。</p>
+  <header class="wrap">
+    <a class="brand" href="#home">MY<span>.</span>SPACE</a>
+    <nav aria-label="主导航"><a href="#about">关于我</a><a href="#journey">成长经历</a><a href="#projects">项目作品</a><a href="#contact">联系我</a></nav>
+  </header>
+  <main>
+    <div class="wrap hero" id="home">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> 欢迎来到我的个人主页</div>
+        <h1>你好，<br>这里是我的<br><em>数字空间。</em></h1>
+        <p class="lead">一个记录学习、探索技术与分享想法的地方。保持好奇，持续学习，把每一个小想法慢慢变成现实。</p>
+        <div class="actions"><a class="btn primary" href="#about">认识我 <span aria-hidden="true">↗</span></a><a class="btn" href="#projects">浏览作品</a></div>
+      </div>
+      <div class="visual" aria-hidden="true"><div class="orb"></div><div class="orbit-label">LEARN · BUILD · GROW</div></div>
+    </div>
+    <section id="about"><div class="wrap">
+      <div class="section-top"><div class="kicker">01 / ABOUT</div><h2 class="section-title">关于我</h2><p class="section-desc">用几句话介绍自己，以及正在关注的方向。</p></div>
+      <div class="about-grid">
+        <article class="card"><h3>个人简介</h3><p>你好！我是【你的名字】。我喜欢探索新知识，乐于把复杂的问题拆解成简单的步骤，也享受从零开始完成一个作品的过程。</p></article>
+        <article class="card"><h3>兴趣与方向</h3><p>目前正在打基础、积累项目经验。未来希望在计算机领域持续深入，做出真正有用的产品。</p><div class="tags"><span class="tag">计算机科学</span><span class="tag">编程学习</span><span class="tag">持续探索</span></div></article>
+      </div>
+    </div></section>
+    <section id="journey"><div class="wrap">
+      <div class="section-top"><div class="kicker">02 / JOURNEY</div><h2 class="section-title">成长经历</h2><p class="section-desc">记录学习和实践中的重要阶段。</p></div>
+      <div class="timeline">
+        <div class="item"><div class="date">教育经历</div><div><strong>在这里填写学校与专业</strong><p>补充入学时间、所学方向或感兴趣的课程。</p></div></div>
+        <div class="item"><div class="date">校园经历</div><div><strong>在这里填写学生工作或社团经历</strong><p>写下承担的职责、参与的活动和收获。</p></div></div>
+        <div class="item"><div class="date">未来计划</div><div><strong>持续学习，积累作品</strong><p>记录正在学习的技能，以及下一步想实现的目标。</p></div></div>
+      </div>
+    </div></section>
+    <section id="projects"><div class="wrap">
+      <div class="section-top"><div class="kicker">03 / PROJECTS</div><h2 class="section-title">项目与作品</h2><p class="section-desc">每一个项目，都是一次从想法走向实践的尝试。</p></div>
+      <div class="project-grid">
+        <article class="card project"><div><div class="num">PROJECT 01</div><h3>我的第一个网站</h3><p>使用 HTML 与 CSS 搭建的个人主页，持续迭代中。</p></div><span class="tag">HTML · CSS</span></article>
+        <article class="card project"><div><div class="num">PROJECT 02</div><h3>待解锁的新项目</h3><p>这里将展示未来完成的课程实践或个人作品。</p></div><span class="tag">COMING SOON</span></article>
+        <article class="card project"><div><div class="num">PROJECT 03</div><h3>学习记录</h3><p>把学习过程中的思考、笔记与阶段成果整理在这里。</p></div><span class="tag">LEARNING</span></article>
+      </div>
+    </div></section>
+    <section id="contact"><div class="wrap contact"><div><div class="kicker">04 / CONTACT</div><h2>保持联系，一起交流。</h2><p>欢迎交流技术、学习与有趣的想法。</p></div><a class="btn primary" href="https://github.com/xuwu7375-ui" target="_blank" rel="noopener noreferrer">访问我的 GitHub ↗</a></div></section>
+  </main>
+  <footer class="wrap"><span>© <span id="year"></span> 我的个人主页</span><span>用热爱记录成长 · Made with curiosity</span></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
