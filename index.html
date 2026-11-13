@@ -1,78 +1,103 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b1220">
-  <meta name="description" content="个人主页与作品集">
-  <title>个人主页 · 我的数字名片</title>
-  <style>
-    :root{--bg:#0b1220;--panel:#111c2e;--text:#edf3ff;--muted:#9aabc4;--blue:#70a7ff;--line:rgba(177,199,230,.14);--glow:rgba(76,133,230,.18)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% 5%,rgba(50,105,190,.20),transparent 35%),var(--bg);color:var(--text);font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7}
-    a{color:inherit;text-decoration:none}.wrap{width:min(1080px,calc(100% - 40px));margin:auto}
-    header{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
-    .brand{font-weight:800;letter-spacing:.08em}.brand span{color:var(--blue)}nav{display:flex;gap:26px;color:var(--muted);font-size:14px}nav a:hover,.link:hover{color:var(--blue)}
-    .hero{min-height:590px;display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:48px;padding:80px 0}
-    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:#a9c9ff;border:1px solid rgba(112,167,255,.28);background:rgba(72,126,208,.10);padding:7px 13px;border-radius:99px;font-size:13px}
-    .dot{width:7px;height:7px;background:#79b4ff;border-radius:50%;box-shadow:0 0 12px #79b4ff}
-    h1{font-size:clamp(42px,7vw,70px);line-height:1.12;letter-spacing:-.045em;margin:24px 0 18px}h1 em{font-style:normal;color:var(--blue)}
-    .lead{font-size:17px;color:var(--muted);max-width:590px}.actions{display:flex;gap:13px;margin-top:32px;flex-wrap:wrap}
-    .btn{padding:11px 19px;border-radius:10px;border:1px solid var(--line);font-size:14px;font-weight:650;transition:.2s}.primary{background:#78aaff;color:#081326;border-color:#78aaff}.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px var(--glow)}
-    .visual{position:relative;min-height:330px;display:grid;place-items:center}.orb{width:260px;height:260px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#a5cbff,#4d82d1 35%,#172e53 70%,#101a2b);box-shadow:0 0 90px rgba(73,132,220,.24);position:relative}
-    .orb:before,.orb:after{content:"";position:absolute;border:1px solid rgba(151,190,255,.35);border-radius:50%;inset:-27px;transform:rotate(-25deg) scaleY(.42)}.orb:after{inset:-55px;transform:rotate(35deg) scaleY(.42);border-color:rgba(151,190,255,.2)}
-    .orbit-label{position:absolute;bottom:16px;right:0;background:rgba(17,28,46,.88);border:1px solid var(--line);padding:12px 16px;border-radius:12px;color:var(--muted);font-size:12px;backdrop-filter:blur(12px)}
-    section{padding:76px 0;border-top:1px solid var(--line)}.section-top{margin-bottom:30px}.kicker{color:var(--blue);font-size:12px;letter-spacing:.16em;font-weight:800}.section-title{font-size:30px;margin:7px 0}.section-desc{color:var(--muted);margin:0}
-    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{background:linear-gradient(145deg,rgba(20,34,55,.92),rgba(14,24,40,.92));border:1px solid var(--line);border-radius:17px;padding:25px}.card h3{margin:0 0 9px;font-size:17px}.card p{margin:0;color:var(--muted);font-size:14px}
-    .tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}.tag{font-size:12px;color:#c2d8ff;background:rgba(112,167,255,.10);border:1px solid rgba(112,167,255,.18);padding:5px 10px;border-radius:7px}
-    .timeline{display:grid;gap:14px}.item{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}.date{color:var(--blue);font-size:13px}.item p{margin:5px 0 0;color:var(--muted);font-size:14px}
-    .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.project{min-height:190px;display:flex;flex-direction:column;justify-content:space-between}.project .num{font-size:12px;color:var(--blue);letter-spacing:.12em}.project p{font-size:13px}
-    .contact{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}.contact h2{font-size:28px;margin:5px 0}.contact p{color:var(--muted);margin:0}
-    footer{padding:25px 0;color:#71839d;font-size:12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-    @media(max-width:760px){nav{gap:13px;font-size:12px}.hero{grid-template-columns:1fr;padding:65px 0 55px;gap:20px}.visual{min-height:260px}.orb{width:190px;height:190px}.about-grid,.project-grid{grid-template-columns:1fr}.item{grid-template-columns:1fr;gap:3px}.section-title{font-size:26px}}
-    @media(max-width:420px){.wrap{width:min(100% - 28px,1080px)}header{height:auto;padding:18px 0;align-items:flex-start;gap:12px;flex-direction:column}nav{flex-wrap:wrap}.hero{min-height:auto}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10131d">
+<meta name="description" content="通过一组轻松的问题，探索你的性格偏好与思维方式。">
+<title>TYPE LAB · MBTI 性格探索</title>
+<style>
+:root{--bg:#10131d;--panel:#191e2b;--panel2:#202738;--text:#f3f5fb;--muted:#a6afc2;--line:rgba(220,230,255,.12);--accent:#b7f09b;--accent2:#c8b7ff;--pink:#ffb7c8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 15% 0%,rgba(183,240,155,.10),transparent 34%),radial-gradient(ellipse at 95% 20%,rgba(200,183,255,.12),transparent 30%),var(--bg);color:var(--text);font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;min-height:100vh}
+button{font:inherit;cursor:pointer}a{color:inherit;text-decoration:none}.wrap{width:min(1050px,calc(100% - 40px));margin:auto}
+header{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.logo{font-weight:900;letter-spacing:.13em;font-size:15px}.logo span{color:var(--accent)}.nav-note{font-size:12px;color:var(--muted);letter-spacing:.08em}
+.hero{padding:90px 0 70px;display:grid;grid-template-columns:1.15fr .85fr;gap:45px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--accent);font-size:12px;letter-spacing:.16em;font-weight:800}.eyebrow:before{content:"";width:22px;height:1px;background:var(--accent)}
+h1{font-size:clamp(48px,7vw,82px);line-height:1.04;letter-spacing:-.06em;margin:22px 0}.hero h1 em{font-style:normal;color:var(--accent)}.lead{color:var(--muted);font-size:16px;max-width:560px}.hero-actions{display:flex;gap:12px;align-items:center;margin-top:30px;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:transparent;color:var(--text);padding:13px 20px;border-radius:12px;font-weight:750;transition:.2s}.btn.primary{background:var(--accent);border-color:var(--accent);color:#172018}.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}.tiny{font-size:12px;color:var(--muted)}
+.art{min-height:330px;display:grid;place-items:center;position:relative}.ring{width:260px;height:260px;border:1px solid rgba(183,240,155,.35);border-radius:50%;display:grid;place-items:center;position:relative;box-shadow:0 0 90px rgba(183,240,155,.08)}.ring:before,.ring:after{content:"";position:absolute;inset:25px;border:1px dashed rgba(200,183,255,.45);border-radius:50%;transform:rotate(35deg) scaleX(1.4)}.ring:after{inset:-25px;transform:rotate(-35deg) scaleX(1.4);border-style:solid;border-color:rgba(255,183,200,.25)}.core{font-size:58px;font-weight:900;letter-spacing:.08em;color:var(--accent);text-shadow:0 0 35px rgba(183,240,155,.3)}.float{position:absolute;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:9px 13px;font-size:12px;color:var(--muted)}.f1{top:18px;right:0}.f2{bottom:26px;left:0}.f3{top:55%;right:-12px}
+main section{padding:58px 0;border-top:1px solid var(--line)}.section-kicker{color:var(--accent2);font-size:11px;font-weight:800;letter-spacing:.18em}.section-title{font-size:29px;margin:6px 0 8px}.section-desc{color:var(--muted);margin:0;max-width:650px}
+.dimension-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:28px}.dimension{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:19px}.dimension b{font-size:22px;color:var(--accent)}.dimension h3{font-size:14px;margin:8px 0 4px}.dimension p{font-size:12px;color:var(--muted);margin:0}
+.test-shell{max-width:760px;margin:30px auto 0;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,38px);box-shadow:0 25px 80px rgba(0,0,0,.18)}.test-top{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:12px}.progress{height:5px;background:#303849;border-radius:9px;margin:15px 0 32px;overflow:hidden}.progress span{display:block;height:100%;width:0;background:var(--accent);transition:width .25s}.q-label{color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.16em}.question{font-size:clamp(21px,3vw,28px);line-height:1.4;margin:12px 0 24px}.answers{display:grid;gap:12px}.answer{width:100%;text-align:left;background:var(--panel2);border:1px solid var(--line);color:var(--text);padding:17px 18px;border-radius:13px;display:flex;align-items:center;gap:14px;transition:.18s}.answer:hover{border-color:rgba(183,240,155,.65);transform:translateX(3px)}.answer .letter{width:29px;height:29px;border-radius:9px;background:#303849;display:grid;place-items:center;color:var(--accent);font-weight:800;flex:none}.test-controls{display:flex;justify-content:space-between;align-items:center;margin-top:25px}.back{border:0;background:none;color:var(--muted);padding:10px 0}.back:disabled{opacity:.25;cursor:not-allowed}.skip-note{font-size:11px;color:var(--muted)}
+.result{max-width:820px;margin:30px auto 0;background:linear-gradient(145deg,#202a35,#1b2030);border:1px solid rgba(183,240,155,.25);border-radius:22px;padding:clamp(22px,5vw,45px)}.result-head{text-align:center;padding:18px 0 30px}.result-code{font-size:clamp(64px,12vw,100px);line-height:1;font-weight:950;letter-spacing:.04em;color:var(--accent)}.result-name{font-size:23px;margin:12px 0 4px}.result-sub{color:var(--muted);font-size:13px}.result-desc{max-width:650px;margin:0 auto;color:#d4dbea}.bars{display:grid;gap:17px;margin:30px 0}.bar-head{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:7px}.bar-track{height:8px;border-radius:10px;background:#343d4d;overflow:hidden}.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:10px}.result-columns{display:grid;grid-template-columns:1fr 1fr;gap:14px}.result-card{background:rgba(10,14,23,.28);border:1px solid var(--line);border-radius:14px;padding:18px}.result-card h3{font-size:14px;margin:0 0 8px}.result-card p{font-size:13px;color:var(--muted);margin:0}.result-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+footer{border-top:1px solid var(--line);padding:25px 0;color:#7f8aa0;font-size:11px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.hidden{display:none!important}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding:65px 0 45px;gap:12px}.art{min-height:260px}.ring{width:205px;height:205px}.core{font-size:45px}.dimension-grid{grid-template-columns:1fr 1fr}.f3{right:0}.result-columns{grid-template-columns:1fr}}
+@media(max-width:430px){.wrap{width:calc(100% - 28px)}header{height:65px}.nav-note{font-size:10px}.dimension{padding:14px}.test-shell{padding:19px}.answer{padding:14px}.hero{padding-top:52px}}
+</style>
 </head>
 <body>
-  <header class="wrap">
-    <a class="brand" href="#home">MY<span>.</span>SPACE</a>
-    <nav aria-label="主导航"><a href="#about">关于我</a><a href="#journey">成长经历</a><a href="#projects">项目作品</a><a href="#contact">联系我</a></nav>
-  </header>
-  <main>
-    <div class="wrap hero" id="home">
-      <div>
-        <div class="eyebrow"><span class="dot"></span> 欢迎来到我的个人主页</div>
-        <h1>你好，<br>这里是我的<br><em>数字空间。</em></h1>
-        <p class="lead">一个记录学习、探索技术与分享想法的地方。保持好奇，持续学习，把每一个小想法慢慢变成现实。</p>
-        <div class="actions"><a class="btn primary" href="#about">认识我 <span aria-hidden="true">↗</span></a><a class="btn" href="#projects">浏览作品</a></div>
-      </div>
-      <div class="visual" aria-hidden="true"><div class="orb"></div><div class="orbit-label">LEARN · BUILD · GROW</div></div>
-    </div>
-    <section id="about"><div class="wrap">
-      <div class="section-top"><div class="kicker">01 / ABOUT</div><h2 class="section-title">关于我</h2><p class="section-desc">用几句话介绍自己，以及正在关注的方向。</p></div>
-      <div class="about-grid">
-        <article class="card"><h3>个人简介</h3><p>你好！我是【你的名字】。我喜欢探索新知识，乐于把复杂的问题拆解成简单的步骤，也享受从零开始完成一个作品的过程。</p></article>
-        <article class="card"><h3>兴趣与方向</h3><p>目前正在打基础、积累项目经验。未来希望在计算机领域持续深入，做出真正有用的产品。</p><div class="tags"><span class="tag">计算机科学</span><span class="tag">编程学习</span><span class="tag">持续探索</span></div></article>
-      </div>
-    </div></section>
-    <section id="journey"><div class="wrap">
-      <div class="section-top"><div class="kicker">02 / JOURNEY</div><h2 class="section-title">成长经历</h2><p class="section-desc">记录学习和实践中的重要阶段。</p></div>
-      <div class="timeline">
-        <div class="item"><div class="date">教育经历</div><div><strong>在这里填写学校与专业</strong><p>补充入学时间、所学方向或感兴趣的课程。</p></div></div>
-        <div class="item"><div class="date">校园经历</div><div><strong>在这里填写学生工作或社团经历</strong><p>写下承担的职责、参与的活动和收获。</p></div></div>
-        <div class="item"><div class="date">未来计划</div><div><strong>持续学习，积累作品</strong><p>记录正在学习的技能，以及下一步想实现的目标。</p></div></div>
-      </div>
-    </div></section>
-    <section id="projects"><div class="wrap">
-      <div class="section-top"><div class="kicker">03 / PROJECTS</div><h2 class="section-title">项目与作品</h2><p class="section-desc">每一个项目，都是一次从想法走向实践的尝试。</p></div>
-      <div class="project-grid">
-        <article class="card project"><div><div class="num">PROJECT 01</div><h3>我的第一个网站</h3><p>使用 HTML 与 CSS 搭建的个人主页，持续迭代中。</p></div><span class="tag">HTML · CSS</span></article>
-        <article class="card project"><div><div class="num">PROJECT 02</div><h3>待解锁的新项目</h3><p>这里将展示未来完成的课程实践或个人作品。</p></div><span class="tag">COMING SOON</span></article>
-        <article class="card project"><div><div class="num">PROJECT 03</div><h3>学习记录</h3><p>把学习过程中的思考、笔记与阶段成果整理在这里。</p></div><span class="tag">LEARNING</span></article>
-      </div>
-    </div></section>
-    <section id="contact"><div class="wrap contact"><div><div class="kicker">04 / CONTACT</div><h2>保持联系，一起交流。</h2><p>欢迎交流技术、学习与有趣的想法。</p></div><a class="btn primary" href="https://github.com/xuwu7375-ui" target="_blank" rel="noopener noreferrer">访问我的 GitHub ↗</a></div></section>
-  </main>
-  <footer class="wrap"><span>© <span id="year"></span> 我的个人主页</span><span>用热爱记录成长 · Made with curiosity</span></footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<header class="wrap"><a class="logo" href="#home">TYPE<span> / </span>LAB</a><div class="nav-note">PERSONALITY EXPLORER · 性格探索实验室</div></header>
+<main>
+<div class="wrap hero" id="home">
+<div><div class="eyebrow">A LITTLE JOURNEY INTO YOU</div><h1>认识自己，<br>从了解<em>偏好</em>开始。</h1><p class="lead">用一组关于日常选择与思考方式的问题，探索你更自然的性格倾向。没有标准答案，按真实的自己来选就好。</p><div class="hero-actions"><button class="btn primary" onclick="startTest()">开始探索 <span aria-hidden="true">↗</span></button><span class="tiny">约 4–6 分钟 · 共 24 题</span></div></div>
+<div class="art" aria-hidden="true"><div class="ring"><div class="core">YOU</div></div><div class="float f1">16 PERSONALITIES</div><div class="float f2">E · I &nbsp; S · N</div><div class="float f3">T · F &nbsp; J · P</div></div>
+</div>
+<section class="wrap"><div class="section-kicker">THE FOUR DIMENSIONS</div><h2 class="section-title">四个维度，认识不同的偏好</h2><p class="section-desc">MBTI 类型由四组偏好组合而成。它们描述倾向，而不是能力高低；每个人在不同情境下都可能使用两边的方式。</p>
+<div class="dimension-grid">
+<div class="dimension"><b>E / I</b><h3>精力来源</h3><p>更倾向从外部互动中获得能量，还是通过独处与思考恢复状态？</p></div>
+<div class="dimension"><b>S / N</b><h3>信息获取</h3><p>更关注具体事实与细节，还是整体联系、灵感和可能性？</p></div>
+<div class="dimension"><b>T / F</b><h3>判断方式</h3><p>做决定时更先考虑逻辑原则，还是人的感受与价值取向？</p></div>
+<div class="dimension"><b>J / P</b><h3>生活方式</h3><p>更喜欢提前安排、明确计划，还是保持弹性、随机应变？</p></div>
+</div></section>
+<section class="wrap hidden" id="testSection"><div class="section-kicker">YOUR JOURNEY</div><h2 class="section-title">选择更接近你的一项</h2><p class="section-desc">请按照平时自然的状态作答，不必过度分析，也没有正确或错误的选项。</p>
+<div class="test-shell" id="testShell"><div class="test-top"><span id="questionCount">QUESTION 01 / 24</span><span id="percent">4%</span></div><div class="progress"><span id="progressBar"></span></div><div class="q-label" id="dimensionLabel">ENERGY · 精力来源</div><div class="question" id="questionText"></div><div class="answers" id="answers"></div><div class="test-controls"><button class="back" id="backBtn" onclick="previousQuestion()" disabled>← 上一题</button><span class="skip-note">选择一个最符合日常自己的答案</span></div></div>
+</section>
+<section class="wrap hidden" id="resultSection"><div class="section-kicker">YOUR PERSONALITY SNAPSHOT</div><h2 class="section-title">你的探索结果</h2><p class="section-desc">这是一张帮助你开启自我观察的简要地图，不是给你贴上的固定标签。</p><div class="result" id="resultCard"></div></section>
+</main>
+<footer class="wrap"><span>TYPE / LAB · 一个关于自我认识的小实验</span><span>结果仅供自我探索与娱乐，不构成心理诊断或专业评估。</span></footer>
+<script>
+const questions=[
+{d:"EI",label:"ENERGY · 精力来源",q:"参加了一场热闹的聚会后，你通常会？",a:"觉得很有能量，还想继续和大家交流",b:"需要一点独处时间，让自己安静下来"},
+{d:"SN",label:"INFORMATION · 信息获取",q:"学习一个全新的知识时，你更喜欢？",a:"先看具体例子和实际操作，再总结规律",b:"先理解整体框架和背后的原理，再看细节"},
+{d:"TF",label:"DECISION · 判断方式",q:"朋友请你帮忙分析一个难题，你通常先？",a:"梳理事实、逻辑和可行方案",b:"了解对方的感受，以及这件事对他的意义"},
+{d:"JP",label:"LIFESTYLE · 生活方式",q:"面对一项还有一周截止的任务，你更可能？",a:"尽早制定计划，按步骤完成",b:"先保留弹性，根据进展调整节奏"},
+{d:"EI",label:"ENERGY · 精力来源",q:"遇到一个有趣的新想法，你更倾向于？",a:"找人讨论，在交流中把想法完善",b:"先自己琢磨清楚，再决定是否分享"},
+{d:"SN",label:"INFORMATION · 信息获取",q:"听别人讲述一件事时，你更容易注意到？",a:"具体发生了什么、有哪些细节",b:"这件事说明了什么、可能带来什么变化"},
+{d:"TF",label:"DECISION · 判断方式",q:"团队出现分歧时，你认为首先应该？",a:"明确标准，比较不同方案的利弊",b:"听取各方立场，尽量照顾彼此感受"},
+{d:"JP",label:"LIFESTYLE · 生活方式",q:"周末出行，你更喜欢？",a:"提前安排路线、时间和事项",b:"只确定大致方向，到了再看心情"},
+{d:"EI",label:"ENERGY · 精力来源",q:"在陌生的集体活动中，你通常会？",a:"主动认识新朋友，参与大家的讨论",b:"先观察环境，和少数人慢慢熟悉"},
+{d:"SN",label:"INFORMATION · 信息获取",q:"阅读一篇文章时，最吸引你的是？",a:"真实案例、明确数据和实用方法",b:"新颖观点、深层联系和未来启发"},
+{d:"TF",label:"DECISION · 判断方式",q:"评价一项作品时，你更看重？",a:"完成质量、逻辑严谨和实际效果",b:"表达的情感、初衷和对人的触动"},
+{d:"JP",label:"LIFESTYLE · 生活方式",q:"处理多项待办事项时，你更喜欢？",a:"列出清单，逐项完成并及时确认",b:"根据当下状态和新情况灵活处理"},
+{d:"EI",label:"ENERGY · 精力来源",q:"经过忙碌的一天，你恢复状态的方式更像？",a:"和朋友聊天、运动或参加活动",b:"安静待一会儿，听音乐或独自思考"},
+{d:"SN",label:"INFORMATION · 信息获取",q:"面对一个复杂问题，你更自然的第一步是？",a:"收集已知事实，逐个解决具体问题",b:"寻找核心模式，尝试从不同角度理解"},
+{d:"TF",label:"DECISION · 判断方式",q:"给同学反馈时，你更倾向于？",a:"直接指出问题，并给出清晰的改进建议",b:"先肯定努力，再用对方容易接受的方式沟通"},
+{d:"JP",label:"LIFESTYLE · 生活方式",q:"临时出现一个新机会，打乱了原计划，你会？",a:"先评估原计划，再决定是否调整",b:"觉得变化也不错，愿意看看会发生什么"},
+{d:"EI",label:"ENERGY · 精力来源",q:"在小组讨论中，你通常？",a:"边说边整理思路，想到什么就提出什么",b:"先听大家表达，整理好后再发言"},
+{d:"SN",label:"INFORMATION · 信息获取",q:"别人教你使用一款新软件，你更希望？",a:"按照步骤演示每个功能怎么操作",b:"先了解设计思路，再自己探索功能"},
+{d:"TF",label:"DECISION · 判断方式",q:"做一个重要选择时，你更难忽略的是？",a:"是否合理、公平，能否经得起推敲",b:"是否符合内心价值，会不会影响重要的人"},
+{d:"JP",label:"LIFESTYLE · 生活方式",q:"对于旅行或学习计划，你更喜欢？",a:"有清晰安排，心里更踏实",b:"留出自由空间，避免安排得太满"},
+{d:"EI",label:"ENERGY · 精力来源",q:"认识新朋友后，你通常更容易？",a:"很快打开话题，边交流边了解对方",b:"需要多相处几次，才会逐渐熟络"},
+{d:"SN",label:"INFORMATION · 信息获取",q:"听到一个大胆的新观点，你首先会？",a:"看看它有哪些证据，现实中是否成立",b:"想想它还能延伸出哪些新可能"},
+{d:"TF",label:"DECISION · 判断方式",q:"当规则与某个人的特殊处境发生冲突，你会？",a:"优先考虑规则的一致性和整体公平",b:"也要考虑具体处境，寻找更有人情味的处理方式"},
+{d:"JP",label:"LIFESTYLE · 生活方式",q:"面对一个开放式任务，没有明确步骤时，你会？",a:"先自己建立结构和时间表",b:"先尝试起来，在过程中逐渐找到方向"}
+];
+const profiles={
+ISTJ:["检查者","认真、务实，重视责任与秩序。你可能擅长把目标拆成清晰步骤，并稳定地推进。","可靠执行、关注细节、重视承诺","有时容易过度依赖熟悉的方法；可以给新方案留一点试验空间。","把复杂任务拆成清单，设置阶段性检查点。"],
+ISFJ:["守护者","细致、体贴，重视关系中的责任与稳定。你可能善于留意他人的需要，并默默把事情安排妥当。","耐心支持、观察细致、值得信赖","有时容易把他人的需求放在自己之前；适当表达边界也很重要。","在帮助他人的同时，明确自己的时间与优先级。"],
+INFJ:["洞察者","重视意义与长期方向，善于观察人与事背后的联系。你可能喜欢深入思考，并希望行动与价值观一致。","洞察力、理想感、善于倾听","有时容易想得太深或对自己要求过高；允许事情逐步完善。","把长远愿景转化为本周可以完成的小行动。"],
+INTJ:["策略家","独立、重视逻辑与长远规划。你可能喜欢理解系统如何运作，并寻找更高效的解决路径。","系统思维、独立判断、规划能力","有时可能低估沟通和情绪因素；让他人参与思考过程会带来新视角。","先定义目标，再拆解路径，并定期复盘假设。"],
+ISTP:["实践者","冷静、灵活，倾向于通过观察和动手理解问题。面对具体挑战时，你可能喜欢先尝试再优化。","动手能力、临场应变、问题排查","有时可能不愿过早规划或解释思路；适当记录过程有助于协作。","通过小实验验证想法，把经验沉淀成可复用的方法。"],
+ISFP:["体验者","温和、敏锐，重视真实感受与个人价值。你可能善于发现细节中的美感，并用自己的方式表达。","审美感受、适应力、真诚待人","有时可能回避冲突或难以表达需求；清晰沟通能减少误解。","为重要目标设定温和但明确的行动期限。"],
+INFP:["理想主义者","富有想象力，重视内心价值与个人意义。你可能愿意探索不同可能，并关心行动是否符合自己的信念。","创造力、共情力、价值感","有时可能在理想与现实之间犹豫；先完成一个小版本再持续改进。","把灵感写下来，选一个最重要的方向先行动。"],
+INTP:["思考者","好奇、分析导向，喜欢追问原理与逻辑关系。你可能享受独立研究，并从理解复杂概念中获得满足。","逻辑分析、概念理解、独立探索","有时可能陷入反复推演而迟迟不开始；给探索设置一个实践节点。","先做出可运行的初版，再根据结果深入研究。"],
+ESTP:["行动派","务实、反应快，喜欢在真实情境中解决问题。你可能善于抓住眼前机会，并快速适应变化。","行动力、应变能力、现实判断","有时可能低估长期影响；重要决定前稍作停顿并评估风险。","把大目标拆成短周期挑战，同时保留复盘时间。"],
+ESFP:["活力派","热情、友好，善于关注当下体验与周围的人。你可能能为集体带来活力，也乐于通过实践学习。","亲和力、表达力、现场感染力","有时可能被眼前的新鲜事分散注意；提前确定核心优先级。","用有趣的实践任务推动学习，并记录阶段成果。"],
+ENFP:["探索者","热情、富有想象力，容易被新点子和人与人的连接激发。你可能喜欢探索多种路径，并鼓励他人尝试。","创造力、热情、连接不同想法","有时可能同时开启太多方向；选择少数重点持续投入。","建立灵感清单，每个阶段只推进一两个重点项目。"],
+ENTP:["创想家","思维敏捷，喜欢挑战假设、讨论观点和探索新方案。你可能擅长从不同角度发现问题。","点子丰富、思辨能力、创新意识","有时可能过于追求新鲜感；把好点子推进到落地同样重要。","给每个创意设定一个最小可行成果和完成日期。"],
+ESTJ:["组织者","直接、务实，重视效率、规则与目标达成。你可能擅长协调资源，让团队工作更有条理。","组织协调、执行推进、目标意识","有时可能过快进入解决问题模式；先确认他人的想法和处境。","明确分工与标准，同时为团队反馈留出空间。"],
+ESFJ:["协作者","热心、负责，关注团队氛围与彼此支持。你可能擅长组织活动，让成员感到被看见和接纳。","沟通协调、责任感、团队支持","有时可能太在意他人评价；记得自己的判断也值得重视。","在照顾集体的同时，给自己设定清晰的个人目标。"],
+ENFJ:["引导者","善于理解他人并推动共同目标。你可能擅长鼓励团队、表达愿景，让大家朝同一方向努力。","沟通表达、鼓舞他人、团队协作","有时可能承担过多责任；学会分工并尊重自己的精力。","把愿景转化为可执行的团队计划，并明确责任边界。"],
+ENTJ:["统筹者","目标明确，重视效率与整体策略。你可能喜欢组织复杂事务，并推动想法转化为实际成果。","战略规划、决策推进、资源整合","有时可能显得过于急切；主动倾听能让决策更全面。","设定清晰里程碑，并定期收集团队的真实反馈。"]
+};
+let current=0,answers=Array(questions.length).fill(null);
+function startTest(){document.getElementById('testSection').classList.remove('hidden');document.getElementById('resultSection').classList.add('hidden');document.getElementById('testSection').scrollIntoView({behavior:'smooth'});renderQuestion()}
+function renderQuestion(){const q=questions[current];document.getElementById('questionCount').textContent='QUESTION '+String(current+1).padStart(2,'0')+' / '+questions.length;document.getElementById('percent').textContent=Math.round((current+1)/questions.length*100)+'%';document.getElementById('progressBar').style.width=((current+1)/questions.length*100)+'%';document.getElementById('dimensionLabel').textContent=q.label;document.getElementById('questionText').textContent=q.q;document.getElementById('backBtn').disabled=current===0;document.getElementById('answers').innerHTML='';['a','b'].forEach((key,i)=>{const btn=document.createElement('button');btn.className='answer';btn.innerHTML='<span class="letter">'+(i===0?'A':'B')+'</span><span></span>';btn.querySelector('span:last-child').textContent=q[key];btn.onclick=()=>choose(key);document.getElementById('answers').appendChild(btn)})}
+function choose(key){answers[current]=key;if(current<questions.length-1){current++;renderQuestion()}else showResult()}
+function previousQuestion(){if(current>0){current--;renderQuestion()}}
+function showResult(){const tally={E:0,I:0,S:0,N:0,T:0,F:0,J:0,P:0};questions.forEach((q,i)=>{const first=q.d[0],second=q.d[1];if(answers[i]==='a')tally[first]++;else tally[second]++});const pairs=[['E','I'],['S','N'],['T','F'],['J','P']];const type=pairs.map(pair=>tally[pair[0]]>=tally[pair[1]]?pair[0]:pair[1]).join('');const p=profiles[type];const labels=[['外向 E','内向 I','E','I'],['实感 S','直觉 N','S','N'],['思考 T','情感 F','T','F'],['判断 J','感知 P','J','P']];let bars='';labels.forEach(([l1,l2,a,b])=>{const total=tally[a]+tally[b],left=Math.round(tally[a]/total*100),right=100-left;bars+='<div><div class="bar-head"><span>'+l1+'　'+left+'%</span><span>'+l2+'　'+right+'%</span></div><div class="bar-track"><div class="bar-fill" style="width:'+left+'%"></div></div></div>'});document.getElementById('resultCard').innerHTML='<div class="result-head"><div class="result-code">'+type+'</div><div class="result-name">'+p[0]+'</div><div class="result-sub">你的倾向组合 · 24 道原创情境题</div></div><p class="result-desc">'+p[1]+'</p><div class="bars">'+bars+'</div><div class="result-columns"><div class="result-card"><h3>✦ 可能的优势</h3><p>'+p[2]+'</p></div><div class="result-card"><h3>↗ 可以留意的盲点</h3><p>'+p[3]+'</p></div><div class="result-card"><h3>⌁ 学习与协作建议</h3><p>'+p[4]+'</p></div><div class="result-card"><h3>◎ 关于这份结果</h3><p>四个维度的分数接近时，说明你的偏好可能会随情境变化。类型只是观察自己的一个角度，不代表能力、价值或未来。</p></div></div><div class="result-actions"><button class="btn primary" onclick="restartTest()">重新测试</button><button class="btn" onclick="shareResult()">复制结果</button></div>';document.getElementById('testSection').classList.add('hidden');document.getElementById('resultSection').classList.remove('hidden');document.getElementById('resultSection').scrollIntoView({behavior:'smooth'})}
+function restartTest(){current=0;answers=Array(questions.length).fill(null);startTest()}
+function shareResult(){const code=document.querySelector('.result-code').textContent;const name=document.querySelector('.result-name').textContent;const text='我的 TYPE LAB 性格探索结果：'+code+' · '+name+'。这是一份用于自我探索与娱乐的简化测试。';if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(()=>alert('结果已复制！')).catch(()=>prompt('复制下面的结果：',text))}else prompt('复制下面的结果：',text)}
+</script>
 </body>
 </html>
